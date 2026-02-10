@@ -12,17 +12,25 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 15, duration: 0.8 },
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 15,
+      duration: 0.8,
+    } as const,
   },
-};
+} as const;
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    } as const,
   },
-};
+} as const;
 
 // Variants برای کارت‌ها (اتصال و favorites)
 const connectCardVariants = {
@@ -31,9 +39,13 @@ const connectCardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 120, damping: 14 },
+    transition: {
+      type: "spring" as const,
+      stiffness: 120,
+      damping: 14,
+    } as const,
   },
-};
+} as const;
 
 const images = [
   "/esteghlal.png",
@@ -192,9 +204,9 @@ function App() {
                 scale: 1.08,
                 boxShadow: "0 0 35px 5px rgba(59, 130, 246, 0.5)",
                 borderColor: "rgba(147, 197, 253, 0.7)",
-              }}
+              } as const}
               whileTap={{ scale: 0.94 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: "spring" as const, stiffness: 400, damping: 17 } as const}
               onClick={handleAboutClick}
               className="
                 relative overflow-hidden px-10 py-5 mt-4
@@ -333,7 +345,7 @@ function App() {
                 text-white transition-all duration-400 active:scale-95 hover:shadow-cyan-600/70
               "
             >
-             Thank's for watching
+              Thank's for watching
             </motion.button>
           </motion.div>
         )}
@@ -365,7 +377,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               variants={connectCardVariants}
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.04 } as const}
               whileTap={{ scale: 0.96 }}
               className="
                 flex items-center gap-5 p-6 rounded-2xl cursor-pointer
@@ -383,7 +395,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               variants={connectCardVariants}
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.04 } as const}
               whileTap={{ scale: 0.96 }}
               className="
                 flex items-center gap-5 p-6 rounded-2xl cursor-pointer
